@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     addBtn.addEventListener("click", addTask);
 
+    loadTasks();
+
 });
 
 function addTask() {
@@ -15,6 +17,15 @@ function addTask() {
         return;
     }
 
+    createTask(task);
+
+    saveTask(task);
+
+    document.getElementById("taskInput").value = "";
+}
+
+function createTask(task) {
+
     let li = document.createElement("li");
 
     let taskText = document.createElement("span");
@@ -24,13 +35,53 @@ function addTask() {
     deleteBtn.textContent = "Delete";
 
     deleteBtn.addEventListener("click", () => {
+
         li.remove();
+
+        removeTask(task);
+
     });
 
     li.appendChild(taskText);
     li.appendChild(deleteBtn);
 
     document.getElementById("taskList").appendChild(li);
+}
 
-    document.getElementById("taskInput").value = "";
+function saveTask(task) {
+
+    let tasks =
+        JSON.parse(localStorage.getItem("tasks")) || [];
+
+    tasks.push(task);
+
+    localStorage.setItem(
+        "tasks",
+        JSON.stringify(tasks)
+    );
+}
+
+function loadTasks() {
+
+    let tasks =
+        JSON.parse(localStorage.getItem("tasks")) || [];
+
+    tasks.forEach(task => {
+        createTask(task);
+    });
+}
+
+function removeTask(taskToRemove) {
+
+    let tasks =
+        JSON.parse(localStorage.getItem("tasks")) || [];
+
+    tasks = tasks.filter(task =>
+        task !== taskToRemove
+    );
+
+    localStorage.setItem(
+        "tasks",
+        JSON.stringify(tasks)
+    );
 }
