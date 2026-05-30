@@ -48,3 +48,44 @@ function calculateCGPA(){
     "CGPA = " +
     cgpa.toFixed(2);
 }
+function calculateAttendance(){
+
+    let attended =
+    parseFloat(
+        document.getElementById(
+            "attended"
+        ).value
+    );
+
+    let total =
+    parseFloat(
+        document.getElementById(
+            "total"
+        ).value
+    );
+
+    if(
+        isNaN(attended)
+        ||
+        isNaN(total)
+        ||
+        total === 0
+    ){
+
+        alert(
+            "Enter valid values"
+        );
+
+        return;
+    }
+
+    let percentage =
+    (attended / total) * 100;
+
+    document.getElementById(
+        "attendanceResult"
+    ).textContent =
+    "Attendance = " +
+    percentage.toFixed(2)
+    + "%";
+}

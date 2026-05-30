@@ -1,4 +1,30 @@
 <h3>CGPA Calculator</h3>
+<h3>Attendance Calculator</h3>
+
+<input
+    type="number"
+    id="attended"
+    placeholder="Classes Attended">
+
+<input
+    type="number"
+    id="total"
+    placeholder="Total Classes">
+
+<button id="attendanceBtn">
+    Calculate Attendance
+</button>
+
+<p id="attendanceResult">
+    Attendance = 0%
+</p>
+document.addEventListener("DOMContentLoaded", () => {
+    document
+.getElementById("attendanceBtn")
+.addEventListener(
+    "click",
+    calculateAttendance
+);
 
 <input
     type="number"
