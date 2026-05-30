@@ -18,7 +18,7 @@ input{
 
 button{
     padding:8px 12px;
-    margin-top:5px;
+    margin:5px;
     cursor:pointer;
 }
 
@@ -32,11 +32,29 @@ li{
     border-radius:5px;
 }
 
+#timer{
+    font-size:28px;
+    font-weight:bold;
+    text-align:center;
+}
+
 .dark{
-    background-color:#222;
+    background:#222;
     color:white;
 }
 
 .dark li{
     border-color:white;
+}
+#cgpaResult{
+    font-weight:bold;
+    font-size:18px;
+    text-align:center;
+    margin-top:10px;
+}
+#cgpaResult{
+    font-weight:bold;
+    font-size:18px;
+    text-align:center;
+    margin-top:10px;
 }

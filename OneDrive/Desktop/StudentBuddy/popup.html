@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Student Buddy</title>
-    <link rel="stylesheet" href="popup.css">
-</head>
-<body>
+<h3>CGPA Calculator</h3>
 
-    <h2>📚 Student Buddy</h2>
+<input
+    type="number"
+    id="gpa1"
+    placeholder="Semester 1 GPA">
 
-    <input
-        type="text"
-        id="taskInput"
-        placeholder="Enter Task">
+<input
+    type="number"
+    id="gpa2"
+    placeholder="Semester 2 GPA">
 
-    <button id="addBtn">
-        Add Task
-    </button>
+<input
+    type="number"
+    id="gpa3"
+    placeholder="Semester 3 GPA">
 
-    <button id="themeBtn">
-        Toggle Dark Mode
-    </button>
+<button id="cgpaBtn">
+    Calculate CGPA
+</button>
 
-    <h3 id="taskCount">
-        Tasks: 0
-    </h3>
-
-    <ul id="taskList"></ul>
-
-    <script src="popup.js"></script>
-
-</body>
-</html>
+<p id="cgpaResult">
+    CGPA = 0.00
+</p>

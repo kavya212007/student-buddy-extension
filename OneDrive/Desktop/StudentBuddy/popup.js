@@ -1,148 +1,50 @@
-document.addEventListener("DOMContentLoaded", () => {
+function calculateCGPA(){
 
-    const addBtn =
-    document.getElementById("addBtn");
+    let gpa1 =
+    parseFloat(
+        document.getElementById("gpa1").value
+    ) || 0;
 
-    const themeBtn =
-    document.getElementById("themeBtn");
+    let gpa2 =
+    parseFloat(
+        document.getElementById("gpa2").value
+    ) || 0;
 
-    addBtn.addEventListener(
-        "click",
-        addTask
-    );
+    let gpa3 =
+    parseFloat(
+        document.getElementById("gpa3").value
+    ) || 0;
 
-    themeBtn.addEventListener(
-        "click",
-        toggleTheme
-    );
+    let count = 0;
+    let total = 0;
 
-    loadTasks();
+    if(gpa1 > 0){
+        total += gpa1;
+        count++;
+    }
 
-});
+    if(gpa2 > 0){
+        total += gpa2;
+        count++;
+    }
 
-function addTask() {
+    if(gpa3 > 0){
+        total += gpa3;
+        count++;
+    }
 
-    let task =
-    document.getElementById(
-        "taskInput"
-    ).value;
+    if(count === 0){
 
-    if(task.trim()===""){
-        alert("Enter a task");
+        alert("Enter GPA values");
+
         return;
     }
 
-    createTask(task);
-
-    saveTask(task);
-
-    updateTaskCount();
+    let cgpa = total / count;
 
     document.getElementById(
-        "taskInput"
-    ).value="";
-}
-
-function createTask(task){
-
-    let li =
-    document.createElement("li");
-
-    let taskText =
-    document.createElement("span");
-
-    taskText.textContent=task;
-
-    let deleteBtn =
-    document.createElement("button");
-
-    deleteBtn.textContent="Delete";
-
-    deleteBtn.addEventListener(
-        "click",
-        ()=>{
-
-            li.remove();
-
-            removeTask(task);
-
-            updateTaskCount();
-
-        }
-    );
-
-    li.appendChild(taskText);
-
-    li.appendChild(deleteBtn);
-
-    document.getElementById(
-        "taskList"
-    ).appendChild(li);
-}
-
-function saveTask(task){
-
-    let tasks =
-    JSON.parse(
-        localStorage.getItem("tasks")
-    ) || [];
-
-    tasks.push(task);
-
-    localStorage.setItem(
-        "tasks",
-        JSON.stringify(tasks)
-    );
-}
-
-function loadTasks(){
-
-    let tasks =
-    JSON.parse(
-        localStorage.getItem("tasks")
-    ) || [];
-
-    tasks.forEach(task=>{
-        createTask(task);
-    });
-
-    updateTaskCount();
-}
-
-function removeTask(taskToRemove){
-
-    let tasks =
-    JSON.parse(
-        localStorage.getItem("tasks")
-    ) || [];
-
-    tasks =
-    tasks.filter(
-        task => task !== taskToRemove
-    );
-
-    localStorage.setItem(
-        "tasks",
-        JSON.stringify(tasks)
-    );
-}
-
-function updateTaskCount(){
-
-    let count =
-    document.querySelectorAll(
-        "#taskList li"
-    ).length;
-
-    document.getElementById(
-        "taskCount"
+        "cgpaResult"
     ).textContent =
-    "Tasks: " + count;
-}
-
-function toggleTheme(){
-
-    document.body.classList.toggle(
-        "dark"
-    );
+    "CGPA = " +
+    cgpa.toFixed(2);
 }
