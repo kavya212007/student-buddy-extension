@@ -1,13 +1,30 @@
 body{
-  width:300px;
-  padding:20px;
+    width:300px;
+    padding:20px;
+    font-family:Arial, sans-serif;
+}
+
+h2{
+    text-align:center;
 }
 
 input{
-  width:100%;
-  margin-bottom:10px;
+    width:100%;
+    padding:8px;
+    margin-bottom:10px;
+    box-sizing:border-box;
 }
 
 button{
-  margin-bottom:10px;
+    padding:6px 10px;
+    margin-top:5px;
+}
+
+li{
+    margin-top:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border:1px solid #ccc;
+    padding:5px;
 }
