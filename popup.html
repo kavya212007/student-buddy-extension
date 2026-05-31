@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <title>StudentBuddy</title>
+    <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-    <h1>StudentBuddy</h1>
-    <a href="popup.html">Open StudentBuddy</a>
+
+    <h3>Attendance Calculator</h3>
+
+    <input type="number" id="attended" placeholder="Classes Attended">
+    <input type="number" id="total" placeholder="Total Classes">
+
+    <button id="attendanceBtn">
+        Calculate Attendance
+    </button>
+
+    <p id="attendanceResult">
+        Attendance = 0%
+    </p>
+
+    <hr>
+
+    <h3>CGPA Calculator</h3>
+
+    <input type="number" id="gpa1" placeholder="Semester 1 GPA">
+    <input type="number" id="gpa2" placeholder="Semester 2 GPA">
+    <input type="number" id="gpa3" placeholder="Semester 3 GPA">
+
+    <button id="cgpaBtn">
+        Calculate CGPA
+    </button>
+
+    <p id="cgpaResult">
+        CGPA = 0.00
+    </p>
+
+    <script src="popup.js"></script>
+
 </body>
 </html>
