@@ -113,3 +113,32 @@ function resetTimer() {
     timeLeft = 25 * 60;
     updateTimer();
 }
+// Task Manager
+
+document.getElementById("addTaskBtn")
+    .addEventListener("click", addTask);
+
+function addTask() {
+
+    const taskInput = document.getElementById("taskInput");
+    const taskText = taskInput.value.trim();
+
+    if (taskText === "") return;
+
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+        ${taskText}
+        <button class="deleteBtn">Delete</button>
+    `;
+
+    li.querySelector(".deleteBtn")
+        .addEventListener("click", () => {
+            li.remove();
+        });
+
+    document.getElementById("taskList")
+        .appendChild(li);
+
+    taskInput.value = "";
+}

@@ -64,3 +64,19 @@ li{
     text-align:center;
     margin-top:10px;
 }
+#taskInput {
+    width: 90%;
+    margin-bottom: 8px;
+}
+
+#taskList {
+    padding-left: 20px;
+}
+
+#taskList li {
+    margin: 5px 0;
+}
+
+.deleteBtn {
+    margin-left: 10px;
+}
