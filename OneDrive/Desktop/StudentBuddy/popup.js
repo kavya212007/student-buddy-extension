@@ -6,6 +6,16 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("cgpaBtn")
         .addEventListener("click", calculateCGPA);
 
+    document.getElementById("startBtn")
+        .addEventListener("click", startTimer);
+
+    document.getElementById("pauseBtn")
+        .addEventListener("click", pauseTimer);
+
+    document.getElementById("resetBtn")
+        .addEventListener("click", resetTimer);
+
+    updateTimer();
 });
 
 function calculateCGPA() {
@@ -57,4 +67,49 @@ function calculateAttendance() {
 
     document.getElementById("attendanceResult").textContent =
         "Attendance = " + percentage.toFixed(2) + "%";
+}
+
+/* Pomodoro Timer */
+
+let timeLeft = 25 * 60;
+let timer = null;
+
+function updateTimer() {
+    const timerDisplay = document.getElementById("timer");
+
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+
+    timerDisplay.textContent =
+        `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+}
+
+function startTimer() {
+
+    if (timer) return;
+
+    timer = setInterval(() => {
+
+        if (timeLeft > 0) {
+            timeLeft--;
+            updateTimer();
+        } else {
+            clearInterval(timer);
+            timer = null;
+            alert("Pomodoro Session Complete!");
+        }
+
+    }, 1000);
+}
+
+function pauseTimer() {
+    clearInterval(timer);
+    timer = null;
+}
+
+function resetTimer() {
+    clearInterval(timer);
+    timer = null;
+    timeLeft = 25 * 60;
+    updateTimer();
 }
